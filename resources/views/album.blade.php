@@ -11,7 +11,7 @@
     <div class="jumboton transparent" id="navbar">
       <a href="/home">IT-Gallery</a>
       <a href="/list">List of albums</a>
-      <a href="/about">About us</a>
+      <a class="hide" href="/about">About us</a>
     </div>
     <div class="jumboton cover"></div>
     <div class="container header">
@@ -24,14 +24,18 @@
     </div>
     <div class="container d-flex flex-wrap content">
       @foreach ($images as $image)
-        <div class="col-6 cards">
+        <div class="col-lg-6 col-xl-4 cards">
           <div class="card_content">
             <img src="{{ asset('storage/'.$album->name_of_album.'/'.$image) }}" onclick="popup(this)">
           </div>
         </div>
       @endforeach
     </div>
-
+    <div class="jumboton">
+      <footer>
+        <p>This website is a part of ITF project</p>
+      </footer>
+    </div>
     <script src="{{ asset('js/jquery-3.2.1.slim.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/application.js') }}"></script>

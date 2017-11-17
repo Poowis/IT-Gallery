@@ -1,6 +1,5 @@
 body {
 	background-color: #f6f7f9;
-	padding-bottom: 1000px;
 }
 
 /*navbar*/
@@ -20,7 +19,7 @@ body {
 }
 
 #navbar a:hover {
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.8);
 }
 
 .transparent {
@@ -32,8 +31,15 @@ body {
 	animation:fadein 0.4s
 }
 
-@keyframes fadeout {from{background-color: rgba(0, 0, 0, 0.65)} to{background-color: rgba(0, 0, 0, 0)}}
-@keyframes fadein {from{background-color: rgba(0, 0, 0, 0)} to{background-color: rgba(0, 0, 0, 0.65)}}
+@keyframes fadeout {
+	from {background-color: rgba(0, 0, 0, 0.65)}
+	to {background-color: rgba(0, 0, 0, 0)}
+}
+
+@keyframes fadein {
+	from {background-color: rgba(0, 0, 0, 0)}
+	to {background-color: rgba(0, 0, 0, 0.65)}
+}
 /*end navbar*/
 
 /*cover*/
@@ -68,11 +74,11 @@ body {
 
 /*content*/
 .content {
-	padding: 0px 15px 15px 0px;
+	padding: 0px 10px 10px 0px;
 }
 
 .cards {
-	padding: 15px 0px 0px 15px;
+	padding: 10px 0px 0px 10px;
 }
 
 .cards img {
@@ -86,14 +92,56 @@ body {
 
 /*popup*/
 #popup {
+	animation:popupin 0.4s;
+	display: none;
 	position: fixed;
+	top:0px;
 	z-index: 100;
 	width: 100%;
 	height: 100%;
-	
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 #popup img {
+	animation:imgin 0.3s;
+	max-width: 95%;
+	max-height: 95%;
+	position: absolute;
+	margin: auto;
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 
+@keyframes popupin {
+	from {background-color: rgba(0, 0, 0, 0)} 
+	to {background-color: rgba(0, 0, 0, 0.5)}
+}
+
+@keyframes imgin {
+	from {transform:scale(0)}
+	to {transform:scale(1)}
 }
 /*end popup*/
+
+/*footer*/
+footer {
+	background-color: rgba(0, 0, 0, 0.65);
+	margin: 0px;
+	text-align: center;
+	color: white;
+}
+
+footer p {
+	display: inline-block;
+	margin-bottom: 0px;
+	padding: 6px;
+}
+/*end footer*/
+
+@media (max-width: 575px) {
+.hide {
+    display: none!important;
+}
+}
