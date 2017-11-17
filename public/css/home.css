@@ -1,0 +1,47 @@
+html, body {
+	height: 100%;
+}
+
+.home_1, .home_2, .home_3 {
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+.main {
+	box-shadow: none;
+}
+
+.home_1 {
+	min-height: 100%;
+	background-image:url('/images/home.jpg') ;
+}
+
+.home_2 {
+	min-height: 400px;
+	background-image:url('/images/about.jpg') ;
+}
+
+.home_3 {
+	min-height: 400px;
+	background-image:url('/images/cover.jpg') ;
+}
+.home_1 h1 {
+	color: white;
+	position: absolute;
+	top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.list h1, .about h1 {
+	margin-bottom: 0px; 
+	text-align: center;
+}
+
+.about .content {
+	box-shadow: none;
+}
+
+.jumboton 

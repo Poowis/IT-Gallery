@@ -1,0 +1,137 @@
+body{
+	background-color: rgba(242, 242, 242, 1) ;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+.cover {
+	min-height: 200px;
+	background-image:url('/images/cover.jpg') ;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav, footer {
+	background-color:rgba(0, 0, 0, 0.8);
+}
+
+.nav {
+	position: relative;
+	z-index: 10
+}
+
+.nav div {
+	padding: 0px;
+}
+
+.nav ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.nav li {
+	list-style-type: none;
+	display: inline-block;
+	font-size: 1.2rem;
+	padding: 3px 10px;
+}
+
+.nav li:hover {
+	background-color: red;
+}
+
+.nav a {
+	color: white;
+}
+
+button {
+	float: right;
+	font-size: 1rem;
+}
+
+.name, .description {
+	display: flex; 
+    justify-content: space-between;
+	padding-top: 8px;
+	background-color: rgba(242, 242, 242, 0.8);
+}
+
+.name h3 {
+	font-size: 1.4rem;
+	padding-bottom: 5px;
+	margin-bottom: 0px;
+}
+
+.description p {
+	padding: 0px 0px 8px 0px;
+	margin-bottom: 0px;
+	margin-top: -3px;
+}
+.nodisplay {
+	display: none;
+}
+
+.main {
+	background-color: white;
+	padding-left: 0px;
+	padding-right: 15px;
+	padding-bottom: 12px;
+}
+
+.main img {
+	width: 100%;
+}
+
+.cards {
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 0px;
+	transition: all 0.5s ease;
+}
+
+.cards .content {
+	width: 100%;
+	display: inline-block;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.content h5, .content p {
+	padding: 0px 10px 5px 10px;
+	margin-bottom: 0px;
+}
+
+.content h5 {
+	padding-top: 5px;
+}
+
+.hidden {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.visible {
+	width: 100%;
+	white-space: normal;
+	word-break: break-all;
+	overflow: visible;
+	height: auto;
+}
+
+footer {
+	color: white;
+	padding: 5px;
+	font-size: 1.1rem;
+	text-align: center;
+	background-color: blue;
+}
