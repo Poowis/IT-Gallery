@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/new', function () {
-    return view('NEW_template');
-});
-
 Route::get('/home', 'MainController@showhome');
 
 Route::get('/list', 'MainController@showlist');

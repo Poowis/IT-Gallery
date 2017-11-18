@@ -17,7 +17,7 @@ class AlbumsData extends Migration
             $table->increments('id');
             $table->string('name_of_album');
             $table->string('uploader');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->timestamp('time_upload');
             $table->text('cover');
             $table->integer('number_of_images');

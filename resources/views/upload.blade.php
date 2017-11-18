@@ -24,16 +24,76 @@
         <h3>Upload Album</h3>
       </div>
     </div>
-    <div class="container d-flex flex-wrap main">
+    {{--<div class="container d-flex flex-wrap main">
         <form action="/upload" method="post" enctype="multipart/form-data">
           {{csrf_field()}}
           <input type="text" name="name" value={{$name}}>*{{$nameErr}}<br>
           <input type="text" name="uploader" value={{$uploader}}>*{{$uploaderErr}}<br>
           <input type="text" name="description" value={{$description}}><br>
           <input type="file" name="cover">*{{$coverErr}}<br>
+          <input type="checkbox" name="show" value="True">show cover in album<br>
           <input type="file" name="files[]" multiple>*{{$filesErr}}<br>
           <input type="submit">
         </form>
+    </div>--}}
+
+    <div class="container">
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <div class="form-group row">
+          <label for="name" class="col-lg-2 col-form-label">Name</label>
+          <div class="col-lg-10">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Name of album">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="uploader" class="col-lg-2 col-form-label">Uploader</label>
+          <div class="col-lg-10">
+            <input type="text" name="uploader" class="form-control" id="uploader" placeholder="Name of uploader">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="description" class="col-lg-2 col-form-label">Desscription</label>
+          <div class="col-lg-10">
+            <textarea name="description" class="form-control" id="description" rows="3" placeholder="Desscription of album"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-lg-2 col-form-label">Cover image</div>
+          <div class="col-lg-10">
+            <label class="custom-file col-lg-10">
+              <input type="file" name="cover" onchange="showcover(this)" class="custom-file-input">
+              <span id="showcover" class="custom-file-control"></span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-lg-2">Show cover</div>
+          <div class="col-lg-10">
+            <div class="form-check">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" name="show" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Show cover in album</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-lg-2 col-form-label">Album images</div>
+          <div class="col-lg-10">
+            <label class="custom-file col-lg-10">
+              <input type="file" name="files[]" onchange="showfiles(this)" class="custom-file-input tmp" multiple>
+              <span id="showfiles" class="custom-file-control"></span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-lg-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
     <footer>
       This project is a part of ITF Subject

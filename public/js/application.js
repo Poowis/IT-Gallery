@@ -13,3 +13,12 @@ function popup(element) {
   document.getElementById("popup").style.display = "block";
 }
 
+function showcover(element) {
+    document.getElementById("showcover").innerHTML = element.value.split("\\").pop()
+
+}
+
+function showfiles(element) {
+    var files = element.files;
+    document.getElementById("showfiles").innerHTML = files.length+" Files choosen"
+}

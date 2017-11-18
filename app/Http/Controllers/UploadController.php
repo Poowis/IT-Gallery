@@ -38,6 +38,7 @@ class UploadController extends Controller
     	$uploader = $request->input('uploader');
         $description = $request->input('description');
         $cover = $request->file('cover');
+        $show = $request->input('show');
         $rawfiles = $request->file('files');
         $images = array();
         if (isset($name, $uploader, $cover, $rawfiles) and !$this->checkname($name)) {
@@ -47,6 +48,9 @@ class UploadController extends Controller
                 $tmp = $cover->store("public/$name");
                 $tmp = explode('/', $tmp);
                 $cover = $tmp[2];
+                if (isset($show)) {
+                    array_push($images, $cover);
+                }
                 foreach ($files as $file) {
                     $tmp = $file->store("public/$name");
                     $tmp = explode('/', $tmp);
@@ -81,7 +85,7 @@ class UploadController extends Controller
             $filesErr = 'FILES IMAGE IS REQUIRED';
         } elseif (!$number) {
             $filesErr = 'CHOOSEN FILES DOES NOT CONTAIN IMAGES';
-        };
+        }
         $data = [
             'name' => $name, 
             'nameErr' => $nameErr, 
