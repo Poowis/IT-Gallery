@@ -1,42 +1,13 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>IT-Gallery</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <div class="jumboton cover"></div>
-    <div class="jumboton header">
-      <div class="jumboton nav">
-        <div class="container">
-          <ul>
-            <a href="/home"><li>IT-Gallery</li></a>
-            <a href="/list"><li>List of albums</li></a>
-            <a href="/about"><li>About us</li></a>
-            <button id="toggle_fullscreen">fullscreen</button>
-          </ul>
-        </div>
-      </div>
-      <div class="container name">
-        <h3>Upload Album</h3>
-      </div>
-    </div>
-    {{--<div class="container d-flex flex-wrap main">
-        <form action="/upload" method="post" enctype="multipart/form-data">
-          {{csrf_field()}}
-          <input type="text" name="name" value={{$name}}>*{{$nameErr}}<br>
-          <input type="text" name="uploader" value={{$uploader}}>*{{$uploaderErr}}<br>
-          <input type="text" name="description" value={{$description}}><br>
-          <input type="file" name="cover">*{{$coverErr}}<br>
-          <input type="checkbox" name="show" value="True">show cover in album<br>
-          <input type="file" name="files[]" multiple>*{{$filesErr}}<br>
-          <input type="submit">
-        </form>
-    </div>--}}
+@extends('layouts.main')
 
+  @section('header')
+    <div class="container header">
+      <h1>Upload Album</h1>
+      <hr>
+    </div>
+  @endsection
+
+  @section('content')
     <div class="container">
       <form action="/upload" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -62,7 +33,7 @@
           <div class="col-lg-2 col-form-label">Cover image</div>
           <div class="col-lg-10">
             <label class="custom-file col-lg-10">
-              <input type="file" name="cover" onchange="showcover(this)" class="custom-file-input">
+              <input type="file" name="cover" onchange="showcover(this)" class="custom-file-input" required>
               <span id="showcover" class="custom-file-control"></span>
             </label>
           </div>
@@ -83,23 +54,16 @@
           <div class="col-lg-2 col-form-label">Album images</div>
           <div class="col-lg-10">
             <label class="custom-file col-lg-10">
-              <input type="file" name="files[]" onchange="showfiles(this)" class="custom-file-input tmp" multiple>
+              <input type="file" name="files[]" onchange="showfiles(this)" class="custom-file-input tmp" multiple required>
               <span id="showfiles" class="custom-file-control"></span>
             </label>
           </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row justify-content-end">
           <div class="col-lg-10">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
       </form>
     </div>
-    <footer>
-      This project is a part of ITF Subject
-    </footer>
-    <script src="{{ asset('js/jquery-3.2.1.slim.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/application.js') }}"></script>
-  </body>
-</html>
+  @endsection

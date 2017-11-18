@@ -1,137 +1,159 @@
-body{
-	background-color: rgba(242, 242, 242, 1) ;
+body {
+	background-color: #f6f7f9;
+}
+
+/*navbar*/
+#navbar {
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	top: 0px;
+	color: red;
+}
+
+#navbar a {
+	display: inline-block;
+	text-decoration: none;
+	color: white;
+	padding: 6px 16px;
+}
+
+#navbar a:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.transparent {
+	animation:fadeout 0.4s
+}
+
+.block {
+	background-color: rgba(0, 0, 0, 0.65);
+	animation:fadein 0.4s
+}
+
+@keyframes fadeout {
+	from {background-color: rgba(0, 0, 0, 0.65)}
+	to {background-color: rgba(0, 0, 0, 0)}
+}
+
+@keyframes fadein {
+	from {background-color: rgba(0, 0, 0, 0)}
+	to {background-color: rgba(0, 0, 0, 0.65)}
+}
+/*end navbar*/
+
+/*cover*/
+.cover{
+	height: 200px;
+	background-image: url("/images/cover.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
 }
+/*end cover*/
 
-.cover {
-	min-height: 200px;
-	background-image:url('/images/cover.jpg') ;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-}
-
-.sticky {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
-}
-
-.nav, footer {
-	background-color:rgba(0, 0, 0, 0.8);
-}
-
-.nav {
-	position: relative;
-	z-index: 10
-}
-
-.nav div {
-	padding: 0px;
-}
-
-.nav ul {
-	margin: 0px;
-	padding: 0px;
-}
-
-.nav li {
-	list-style-type: none;
-	display: inline-block;
-	font-size: 1.2rem;
-	padding: 3px 10px;
-}
-
-.nav li:hover {
-	background-color: red;
-}
-
-.nav a {
-	color: white;
-}
-
-button {
-	float: right;
-	font-size: 1rem;
-}
-
-.name, .description {
-	display: flex; 
-    justify-content: space-between;
-	padding-top: 8px;
-	background-color: rgba(242, 242, 242, 0.8);
-}
-
-.name h3 {
-	font-size: 1.4rem;
-	padding-bottom: 5px;
-	margin-bottom: 0px;
-}
-
-.description p {
-	padding: 0px 0px 8px 0px;
-	margin-bottom: 0px;
-	margin-top: -3px;
-}
-.nodisplay {
-	display: none;
-}
-
-.main {
+/*header*/
+.header {
 	background-color: white;
-	padding-left: 0px;
-	padding-right: 15px;
-	padding-bottom: 12px;
+	margin-top: 10px;
 }
 
-.main img {
+.header h1 {
+	margin-bottom: 0px;
+}
+
+.header hr {
+	padding: 6px;
+	margin-top: 8px;
+}
+
+.header p {
+	margin-top: -24px;
+	margin-bottom: 0px; 
+	padding-bottom: 4px;
+}
+/*end header*/
+
+/*popup*/
+#popup {
+	animation:popupin 0.4s;
+	display: none;
+	position: fixed;
+	top:0px;
+	z-index: 100;
 	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#popup img {
+	animation:imgin 0.3s;
+	max-width: 95%;
+	max-height: 95%;
+	position: absolute;
+	margin: auto;
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@keyframes popupin {
+	from {background-color: rgba(0, 0, 0, 0)} 
+	to {background-color: rgba(0, 0, 0, 0.5)}
+}
+
+@keyframes imgin {
+	from {transform:scale(0)}
+	to {transform:scale(1)}
+}
+/*end popup*/
+
+/*content*/
+.content {
+	padding: 0px 10px 10px 0px;
 }
 
 .cards {
-	padding-top: 15px;
-	padding-left: 15px;
-	padding-right: 0px;
-	transition: all 0.5s ease;
+	padding: 10px 0px 0px 10px;
 }
 
-.cards .content {
-	width: 100%;
-	display: inline-block;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.cards img {
+	max-height: 100%;
+	max-width: 100%;
 }
 
-.content h5, .content p {
-	padding: 0px 10px 5px 10px;
-	margin-bottom: 0px;
+.card_content:hover {
+	opacity: 0.8;
 }
+/*end content*/
 
-.content h5 {
-	padding-top: 5px;
-}
-
-.hidden {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.visible {
-	width: 100%;
-	white-space: normal;
-	word-break: break-all;
-	overflow: visible;
-	height: auto;
-}
-
+/*footer*/
 footer {
-	color: white;
-	padding: 5px;
-	font-size: 1.1rem;
+	background-color: rgba(0, 0, 0, 0.65);
+	margin: 0px;
 	text-align: center;
-	background-color: blue;
+	color: white;
 }
+
+footer p {
+	display: inline-block;
+	margin-bottom: 0px;
+	padding: 6px;
+}
+/*end footer*/
+
+/*media*/
+@media (max-width: 575px) {
+.hide {
+    display: none!important;
+}
+}
+
+@media (max-width: 970px) {
+#popup {
+	display: none!important;
+}
+}
+/*end media*/

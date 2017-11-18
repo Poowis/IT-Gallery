@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/home', 'MainController@showhome');
+Route::get('/home1', 'MainController@showhome');
 
 Route::get('/list', 'MainController@showlist');
 
@@ -26,3 +26,10 @@ Route::get('/upload', function () {
 Route::post('/upload', 'UploadController@check_then_upload');
 
 Route::get('/uploadabout', 'AboutController@aboutupload');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/app', function (){
+    return view('/app');
+});
