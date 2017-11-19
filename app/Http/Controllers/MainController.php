@@ -20,7 +20,9 @@ class MainController extends Controller
         }
         elseif (count($albums) == 1) {
             return view('home', ['albums' => array($albums[0]), 'names' => $names]);
-        }
+        } else {
+            return view('home', ['albums' => array(), 'names' => $names]);
+        };
     }
     
     public function showlist() {

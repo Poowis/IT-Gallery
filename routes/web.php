@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/',function() {
-    redirect('/upload');
-});
-
 Route::get('/home', 'MainController@showhome');
 
 Route::get('/list', 'MainController@showlist');
