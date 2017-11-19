@@ -11,6 +11,10 @@ body {
 	color: red;
 }
 
+#navbar .container {
+	padding: 0px;
+}
+
 #navbar a, #navbar p {
 	display: inline-block;
 	text-decoration: none;
