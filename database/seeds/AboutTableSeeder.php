@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-class AboutController extends Controller
+class AboutTableSeeder extends Seeder
 {
-
-    public function aboutupload() {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
         $names = array(
             array(
                 'name' => 'Poowis Kumpai', 
@@ -52,15 +55,14 @@ class AboutController extends Controller
             ),
         );
     	foreach ($names as $name) {
-            DB::table('About_Data')->insert([[
+            DB::table('About_Data')->insert([
                 'name' => $name['name'], 
                 'student_id' => $name['student_id'], 
                 'email' => $name['email'],
                 'facebook' => $name['facebook'],
                 'line' => $name['line'],
                 'portrait' => $name['portrait']
-                ]]);
+                ]);
         }
     }
-        
 }

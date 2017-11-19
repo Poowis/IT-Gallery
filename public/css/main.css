@@ -11,7 +11,7 @@ body {
 	color: red;
 }
 
-#navbar a {
+#navbar a, #navbar p {
 	display: inline-block;
 	text-decoration: none;
 	color: white;
@@ -120,6 +120,8 @@ body {
 }
 
 .cards img {
+	margin-left: 50%;
+	transform: translateX(-50%);
 	max-height: 100%;
 	max-width: 100%;
 }

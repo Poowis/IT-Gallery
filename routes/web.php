@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/home1', 'MainController@showhome');
+Route::get('/',function() {
+    redirect('/upload');
+});
+
+Route::get('/home', 'MainController@showhome');
 
 Route::get('/list', 'MainController@showlist');
 
@@ -19,17 +23,10 @@ Route::get('/album/{name}', 'MainController@showalbum');
 
 Route::get('/about', 'MainController@showabout');
 
-Route::get('/upload', function () {
-    return view('upload', ['name' => '', 'nameErr' => '','uploader' => '', 'uploaderErr' => '', 'description' => '', 'coverErr' => '', 'filesErr' => '']);
-});
-
-Route::post('/upload', 'UploadController@check_then_upload');
-
-Route::get('/uploadabout', 'AboutController@aboutupload');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index');
 
-Route::get('/app', function (){
-    return view('/app');
-});
+Route::get('/admin/{order}', 'AdminController@order');
+
+Route::post('/admin/upload', 'UploadController@check_then_upload');

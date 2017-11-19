@@ -2,15 +2,16 @@ html, body {
 	height: 100%;
 }
 
+.cover {
+	display: none;
+}
+
+/*parallax*/
 .home_1, .home_2, .home_3 {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
-}
-
-.main {
-	box-shadow: none;
 }
 
 .home_1 {
@@ -34,14 +35,8 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/*end parallax*/
 
-.list h1, .about h1 {
-	margin-bottom: 0px; 
+.header h1 {
 	text-align: center;
 }
-
-.about .content {
-	box-shadow: none;
-}
-
-.jumboton 

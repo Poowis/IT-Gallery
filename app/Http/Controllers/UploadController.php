@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use File;
+use Illuminate\Support\Facades\Auth;
 
 class UploadController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     function checkname($name) {
         #if name exists, return True
@@ -31,24 +40,24 @@ class UploadController extends Controller
         return $files;
     }
 
-
     public function check_then_upload(Request $request) {
-        $nameErr = $uploaderErr = $coverErr = $filesErr = '';
+        $nameErr = $coverErr = $filesErr = '';
     	$name = $request->input('name');
-    	$uploader = $request->input('uploader');
+    	$uploader = Auth::user()->name;
         $description = $request->input('description');
         $cover = $request->file('cover');
         $show = $request->input('show');
         $rawfiles = $request->file('files');
+        $files = $this->checkfiles($rawfiles);
+        $number = sizeof($files);
         $images = array();
-        if (isset($name, $uploader, $cover, $rawfiles) and !$this->checkname($name)) {
-            $files = $this->checkfiles($rawfiles);
-            $number = sizeof($files);
+        if (isset($name, $uploader, $cover) and $number and !$this->checkname($name)) {
             if (exif_imagetype($cover) and $number) {
                 $tmp = $cover->store("public/$name");
                 $tmp = explode('/', $tmp);
                 $cover = $tmp[2];
                 if (isset($show)) {
+                    $number++;
                     array_push($images, $cover);
                 }
                 foreach ($files as $file) {
@@ -68,29 +77,18 @@ class UploadController extends Controller
             }
             
         }
-        if (empty($name)) {
-            $nameErr = 'NAME OF ALBUM IS REQUIRED';}
-        elseif ($this->checkname($name)) {
-            $nameErr = 'THIS NAME HAS BEEN USED';};
-        if (empty($uploader)) {
-            $uploaderErr = 'UPLOADER IS REQUIRED';};
-        $coverErr = 'PLS SELECT COVER IMAGE AGAIN';
-        $filesErr = 'PLS SELECT IMAGES AGAIN';
-        if (empty($cover)) {
-            $coverErr = 'COVER IMAGE IS REQUIRED';
-        } elseif (!exif_imagetype($cover)) {
+        if ($this->checkname($name)) {
+            $nameErr = 'THIS NAME HAS BEEN USED';
+        };
+        if (!exif_imagetype($cover)) {
             $coverErr = 'CHOOSEN FILE IS NOT IMAGE';
-        }
-        if (empty($rawfiles)) {
-            $filesErr = 'FILES IMAGE IS REQUIRED';
-        } elseif (!$number) {
-            $filesErr = 'CHOOSEN FILES DOES NOT CONTAIN IMAGES';
-        }
+        };
+        if (!$number) {
+            $filesErr = 'CHOOSEN FILES DO NOT CONTAIN IMAGE';
+        };
         $data = [
-            'name' => $name, 
+            'name' => $name,
             'nameErr' => $nameErr, 
-            'uploader' => $uploader,
-            'uploaderErr' => $uploaderErr,
             'description' => $description,
             'coverErr' => $coverErr,
             'filesErr' => $filesErr,         
