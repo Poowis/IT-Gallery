@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -109,5 +110,48 @@ class AdminController extends Controller
             'filesErr' => $filesErr,         
             ];
         return view('upload', $data); 
+    }
+
+    function checkid($id, $table) {
+        #if id exists, return True
+        $idscheck = DB::table($table)->get(['id']);
+        foreach ($idscheck as $idcheck) {
+            if ($idcheck->id == $id) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    public function delete()
+    {
+        return view('delete');
+    }
+
+    public function delete_album(Request $request)
+    {
+        $id = $request->input('id');
+        if ($this->checkid($id, 'Albums_Data')) {
+            $tmp = DB::table('Albums_Data')->where('id', $id)->value('name_of_album');
+            Storage::deleteDirectory("public/$tmp");
+            DB::table('Albums_Data')->where('id', $id)->delete();
+            return redirect('/list');
+        }
+        return view('delete', ['idErr' => 'THIS ID DOES NOT EXISTS']);
+    }
+
+    public function remove()
+    {
+        return view('remove');
+    }
+
+    public function remove_admin(Request $request)
+    {
+        $id = $request->input('id');
+        if ($this->checkid($id, 'users')) {
+            DB::table('users')->where('id', $id)->delete();
+            return redirect('/list');
+        }
+        return view('remove', ['idErr' => 'THIS ID DOES NOT EXISTS']);
     }
 }

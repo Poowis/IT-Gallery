@@ -61,11 +61,11 @@
               <input type="file" name="files[]" onchange="showfiles(this)" class="custom-file-input tmp" multiple required>
               <span id="showfiles" class="custom-file-control"></span>
             </label>
-              @isset($filesErr)
-                <span class="help-block">
-                  <strong>{{ $filesErr }}</strong>
-                </span>
-              @endisset
+            @isset($filesErr)
+              <span class="help-block">
+                <strong>{{ $filesErr }}</strong>
+              </span>
+            @endisset
           </div>
         </div>
         <div class="form-group row justify-content-end">

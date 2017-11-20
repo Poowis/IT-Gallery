@@ -37,3 +37,11 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/admin/upload', 'AdminController@upload');
 
 Route::post('/admin/upload', 'AdminController@check_then_upload');
+
+Route::get('/admin/delete', 'AdminController@delete');
+
+Route::post('/admin/delete', 'AdminController@delete_album');
+
+Route::get('/admin/remove', 'AdminController@remove');
+
+Route::post('/admin/remove', 'AdminController@remove_admin');

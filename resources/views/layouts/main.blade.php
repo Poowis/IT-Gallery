@@ -66,10 +66,10 @@
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <h6 class="dropdown-header">Admin menu</h6>
-                <a class="dropdown-item" href="admin/upload">Upload album</a>
-                <a class="dropdown-item" href="#">Admin menu</a>
-                <a class="dropdown-item" href="#">Admin menu</a>
-                <a class="dropdown-item" href="#">Admin menu</a>
+                <a class="dropdown-item" href="/admin/upload">Upload album</a>
+                <a class="dropdown-item" href="/admin/delete">Delete album</a>
+                <a class="dropdown-item" href="/admin/register">Add admin</a>
+                <a class="dropdown-item" href="/admin/remove">Remove admin</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
