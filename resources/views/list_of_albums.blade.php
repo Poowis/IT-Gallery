@@ -15,7 +15,7 @@
             <a href="album/{{$album->name_of_album}}">
               <img src="{{ asset('storage/'.$album->name_of_album.'/'.$album->cover) }}" alt="FILE IS NOT FOUND">
             </a>
-            <h5 class="hidden">{{$album->name_of_album}}</h5>
+            <h5 class="hidden">{{$album->name_of_album}} ({{$album->number_of_images}})</h5>
             <p class="hidden">Upload by: {{$album->uploader}}<br>Upload time: {{$album->time_upload}}<br>{{$album->description}}</p>
           </div>
         </div>

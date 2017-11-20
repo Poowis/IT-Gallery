@@ -19,10 +19,21 @@ Route::get('/album/{name}', 'MainController@showalbum');
 
 Route::get('/about', 'MainController@showabout');
 
-Auth::routes();
+// Authentication Routes...
+$this->get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('admin/login', 'Auth\LoginController@login');
+$this->post('admin/logout', 'Auth\LoginController@logout')->name('logout');
+// Registration Routes...
+$this->get('admin/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+$this->post('admin/register', 'Auth\RegisterController@register');
+// Password Reset Routes...
+$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/admin', 'AdminController@index');
 
-Route::get('/admin/{order}', 'AdminController@order');
+Route::get('/admin/upload', 'AdminController@upload');
 
-Route::post('/admin/upload', 'UploadController@check_then_upload');
+Route::post('/admin/upload', 'AdminController@check_then_upload');

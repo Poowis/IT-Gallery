@@ -32,8 +32,8 @@
     </div>
     <div class="container main d-flex flex-wrap about">
       @foreach($names as $name)
-        <div class="col-4 cards">
-          <div class="content">
+        <div class="col-lg-6 col-xl-4 cards">
+          <div class="card_content">
             <img src="{{ asset('/images/portrait/'.$name->portrait) }}" alt="PORTRAIT IMAGE HAS NOT BEEN UPLOAD">
             <h5 class="hidden">{{$name->name}}</h5>
             <p class="hidden">Student ID: {{$name->student_id}}<br>Email: {{$name->email}}<br>Facebook: {{$name->facebook}}<br>Line: {{$name->line}}</p>

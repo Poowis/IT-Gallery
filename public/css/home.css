@@ -16,17 +16,17 @@ html, body {
 
 .home_1 {
 	min-height: 100%;
-	background-image:url('/images/home.jpg') ;
+	background-image:url('/images/home1.jpg') ;
 }
 
 .home_2 {
-	min-height: 400px;
-	background-image:url('/images/about.jpg') ;
+	min-height: 100%;
+	background-image:url('/images/home2.jpg') ;
 }
 
 .home_3 {
-	min-height: 400px;
-	background-image:url('/images/cover.jpg') ;
+	min-height: 100%;
+	background-image:url('/images/home3.jpg') ;
 }
 .home_1 h1 {
 	color: white;

@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'admin@default',
-            'password' => bcrypt('defaultadmin')
+            'password' => bcrypt('defaultadmin'),
             ]);
         $this->call(AboutTableSeeder::class);
     }

@@ -35,4 +35,9 @@ class MainController extends Controller
         return view('album', ['album' => $album, 'images' => unserialize($album->images)]);
     }
 
+    public function showabout() {
+        $names = DB::table('About_Data')->get();
+        return view('about', ['names' => $names]);
+    }
+
 }
