@@ -16,7 +16,7 @@
         <a class="link" href="/about">About us</a>
         @guest
         <div class="btn-group float-right">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Login
             </button>
             <div class="dropdown-menu dropdown-menu-right">
@@ -61,7 +61,7 @@
         </div>
         @else
         <div class="btn-group float-right">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}
             </button>
             <div class="dropdown-menu dropdown-menu-right">

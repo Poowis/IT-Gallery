@@ -31,6 +31,26 @@ body {
 	animation:fadein 0.4s
 }
 
+.btn-custom {
+	border: none;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0);
+}
+  
+.btn-custom:hover {
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+  
+.btn-custom:focus, .btn-custom.focus {
+	box-shadow: none;
+ }
+ 
+.show > .btn-custom.dropdown-toggle {
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
 @keyframes fadeout {
 	from {background-color: rgba(0, 0, 0, 0.65)}
 	to {background-color: rgba(0, 0, 0, 0)}
@@ -133,7 +153,7 @@ body {
 
 /*footer*/
 footer {
-	background-color: rgba(0, 0, 0, 0.65);
+	background-color: rgba(0, 0, 0, 0.8);
 	margin: 0px;
 	text-align: center;
 	color: white;

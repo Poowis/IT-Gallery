@@ -13,7 +13,7 @@
       @foreach ($names as $name)
         <div class="row">
           <div class="col-lg-6 col-xl-5">
-            <img src="{{ asset('/images/portrait/'.$name->portrait) }}" alt="PORTRAIT IMAGE HAS NOT BEEN UPLOAD">
+            <img src="{{ asset('/images/portraits/'.$name->portrait) }}" alt="PORTRAIT IMAGE HAS NOT BEEN UPLOAD">
           </div>
           <div class="col-lg-6 col-xl-7">
             <h5 class="hidden">{{$name->name}}</h5>
