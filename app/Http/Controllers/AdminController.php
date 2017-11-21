@@ -26,7 +26,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $albums = DB::table('Albums_Data')->get();
+        return view('admin', ['albums' => $albums]);
     }
 
     public function upload()

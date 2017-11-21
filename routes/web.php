@@ -32,7 +32,7 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin/view', 'AdminController@index');
 
 Route::get('/admin/upload', 'AdminController@upload');
 
@@ -42,6 +42,3 @@ Route::get('/admin/delete', 'AdminController@delete');
 
 Route::post('/admin/delete', 'AdminController@delete_album');
 
-Route::get('/admin/remove', 'AdminController@remove');
-
-Route::post('/admin/remove', 'AdminController@remove_admin');

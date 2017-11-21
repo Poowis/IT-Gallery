@@ -22,36 +22,36 @@ class AboutTableSeeder extends Seeder
                 'portrait' => 'poowis.jpg' 
             ),
             array(
-                'name' => 'a', 
-                'student_id' => 'a', 
-                'email' => 'a',
-                'facebook' => 'a',
-                'line' => 'a',
-                'portrait' => 'a' 
+                'name' => 'Satawat Thitisupakul', 
+                'student_id' => '60070093', 
+                'email' => 's_nack@hotmail.com',
+                'facebook' => 'Nack Thitosipakul',
+                'line' => 'satawatnack',
+                'portrait' => 'Nack.jpg' 
             ),
             array(
-                'name' => 'a', 
-                'student_id' => 'a', 
-                'email' => 'a',
-                'facebook' => 'a',
-                'line' => 'a',
-                'portrait' => 'a' 
+                'name' => 'Ingkarat Tinnakornsrisupap', 
+                'student_id' => '60070119', 
+                'email' => 'ingkaratt@gmail.com',
+                'facebook' => "I'Ing Karat",
+                'line' => 'ingkaratin',
+                'portrait' => 'ing.jpg' 
             ),
             array(
-                'name' => 'a', 
-                'student_id' => 'a', 
-                'email' => 'a',
-                'facebook' => 'a',
-                'line' => 'a',
-                'portrait' => 'a' 
+                'name' => 'Apinan Pongraanachote', 
+                'student_id' => '60070112', 
+                'email' => 'dark_camry@hotmsil.com',
+                'facebook' => 'junior spiritr pogratanachote',
+                'line' => 'junior_sr',
+                'portrait' => 'junior.jpg' 
             ),
             array(
-                'name' => 'a', 
-                'student_id' => 'a', 
-                'email' => 'a',
-                'facebook' => 'a',
-                'line' => 'a',
-                'portrait' => 'a' 
+                'name' => 'Rachapa Permpool', 
+                'student_id' => '60070083', 
+                'email' => '60070083@it.kmil.ac.th',
+                'facebook' => 'Ratchapat Permpool',
+                'line' => 'torasantr',
+                'portrait' => 'ToRaSan.jpg' 
             ),
         );
     	foreach ($names as $name) {

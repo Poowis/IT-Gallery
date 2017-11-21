@@ -20,7 +20,8 @@
                 Login
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                    <form class="px-4 py-3" method="POST" action="{{ route('login') }}">
+                <h6 class="dropdown-header">Admin login</h6>
+                    <form class="form-item" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
                         <div class="form-group">
                             <label for="email">E-Mail Address</label>
@@ -66,10 +67,10 @@
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <h6 class="dropdown-header">Admin menu</h6>
+                <a class="dropdown-item" href="/admin/view">Admin view</a>
                 <a class="dropdown-item" href="/admin/upload">Upload album</a>
                 <a class="dropdown-item" href="/admin/delete">Delete album</a>
                 <a class="dropdown-item" href="/admin/register">Add admin</a>
-                <a class="dropdown-item" href="/admin/remove">Remove admin</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();

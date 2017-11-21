@@ -2,6 +2,34 @@ body {
 	background-color: #f6f7f9;
 }
 
+/*import font*/
+@font-face {
+    font-family: "bangna-new";
+    src: url('/bangna-new.ttf') format("truetype");
+}
+
+p, h1, h2, h3, h4, h5, h6, a, button { 
+	font-family: "bangna-new";
+	font-weight: bold;
+	padding-top: 6px;
+	margin-bottom: 0px;
+}
+/*end import font*/
+
+/*media*/
+@media (max-width: 575px) {
+.hide {
+	display: none!important;
+}
+}
+
+@media (max-width: 970px) {
+#popup {
+	display: none!important;
+}
+}
+/*end media*/
+
 /*navbar*/
 #navbar {
 	position: fixed;
@@ -16,9 +44,11 @@ body {
 	text-decoration: none;
 	color: white;
 	padding: 6px 16px;
+	animation:fadeout 0.3s
 }
 
 #navbar .link:hover {
+	animation:linkin 0.3s;
 	background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -29,6 +59,15 @@ body {
 .block {
 	background-color: rgba(0, 0, 0, 0.65);
 	animation:fadein 0.4s
+}
+
+.form-item {
+	padding: 4px 24px 4px 24px;
+}
+
+.help-block {
+	display: inline-block;
+	margin-top: 6px;
 }
 
 .btn-custom {
@@ -51,14 +90,24 @@ body {
 	background-color: rgba(0, 0, 0, 0.8);
 }
 
-@keyframes fadeout {
-	from {background-color: rgba(0, 0, 0, 0.65)}
+@keyframes linkin {
+	from {background-color: rgba(0, 0, 0, 0)}
+	to {background-color: rgba(0, 0, 0, 0.8)}
+}
+
+@keyframes linkout {
+	from {background-color: rgba(0, 0, 0, 0.8)}
 	to {background-color: rgba(0, 0, 0, 0)}
 }
 
 @keyframes fadein {
 	from {background-color: rgba(0, 0, 0, 0)}
 	to {background-color: rgba(0, 0, 0, 0.65)}
+}
+
+@keyframes fadeout {
+	from {background-color: rgba(0, 0, 0, 0.65)}
+	to {background-color: rgba(0, 0, 0, 0)}
 }
 /*end navbar*/
 
@@ -77,6 +126,7 @@ body {
 .header {
 	background-color: white;
 	margin-top: 10px;
+	margin-bottom: 16px;
 }
 
 .header h1 {
@@ -86,10 +136,11 @@ body {
 .header hr {
 	padding: 6px;
 	margin-top: 8px;
+	margin-bottom: 0px;
 }
 
 .header p {
-	margin-top: -24px;
+	margin-top: -8px;
 	margin-bottom: 0px; 
 	padding-bottom: 4px;
 }
@@ -101,7 +152,7 @@ body {
 	display: none;
 	position: fixed;
 	top:0px;
-	z-index: 100;
+	z-index: 10000;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
@@ -132,6 +183,7 @@ body {
 
 /*content*/
 .content {
+	margin-top: -16px;
 	padding: 0px 10px 10px 0px;
 }
 
@@ -149,11 +201,19 @@ body {
 .card_content:hover {
 	opacity: 0.8;
 }
+
+.cards h5 {
+	margin-top: 6px;
+}
+
+.cards p {
+	margin-bottom: 0px;
+}
 /*end content*/
 
 /*footer*/
 footer {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 1);
 	margin: 0px;
 	text-align: center;
 	color: white;
@@ -165,17 +225,3 @@ footer p {
 	padding: 6px;
 }
 /*end footer*/
-
-/*media*/
-@media (max-width: 575px) {
-.hide {
-    display: none!important;
-}
-}
-
-@media (max-width: 970px) {
-#popup {
-	display: none!important;
-}
-}
-/*end media*/

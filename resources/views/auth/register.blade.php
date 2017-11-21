@@ -2,7 +2,7 @@
 
 @section('header')
     <div class="container header">
-      <h1>Add Admin</h1>
+      <h3>Add Admin</h3>
       <hr>
     </div>
 @endsection

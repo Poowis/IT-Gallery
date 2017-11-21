@@ -2,7 +2,7 @@
 
   @section('header')
     <div class="container header">
-      <h1>Upload Album</h1>
+      <h3>Upload Album</h3>
       <hr>
     </div>
   @endsection

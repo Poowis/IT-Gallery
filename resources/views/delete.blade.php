@@ -2,7 +2,7 @@
 
   @section('header')
     <div class="container header">
-      <h1>Delete Album by ID</h1>
+      <h3>Delete Album by ID</h3>
       <hr>
     </div>
   @endsection

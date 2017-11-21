@@ -2,7 +2,7 @@
 
   @section('header')
     <div class="container header">
-      <h1>{{$album -> name_of_album}}</h1>
+      <h3>{{$album -> name_of_album}}</h3>
       <hr>
       <p>Upload by: {{$album -> uploader}}<br>Upload time: {{$album -> time_upload}}<br>{{$album -> description}}</p>
     </div>
