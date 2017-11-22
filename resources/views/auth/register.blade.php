@@ -2,8 +2,9 @@
 
 @section('header')
     <div class="container header">
-      <h3>Add Admin</h3>
+      <h3>Register</h3>
       <hr>
+      <p>Register into this website gives you no new access. Only to send your detail to admin for contact.</p>
     </div>
 @endsection
 
@@ -12,7 +13,7 @@
         <form class="form-group" method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
             <div class="form-group row">
-                <label for="name" class="col-lg-2 col-form-label">Name</label>
+                <label for="name" class="col-lg-2 col-form-label">Username</label>
                 <div class="col-lg-10">
                     <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                     @if ($errors->has('name'))

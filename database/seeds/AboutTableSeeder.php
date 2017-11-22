@@ -19,7 +19,7 @@ class AboutTableSeeder extends Seeder
                 'email' => '60070184@kmitl.ac.th',
                 'facebook' => 'Poowis Kumpai',
                 'line' => 'poowis42',
-                'portrait' => 'poowis.jpg' 
+                'portrait' => 'poowis.png' 
             ),
             array(
                 'name' => 'Satawat Thitisupakul', 
@@ -46,7 +46,7 @@ class AboutTableSeeder extends Seeder
                 'portrait' => 'junior.jpg' 
             ),
             array(
-                'name' => 'Rachapa Permpool', 
+                'name' => 'Rachapat Permpool', 
                 'student_id' => '60070083', 
                 'email' => '60070083@it.kmil.ac.th',
                 'facebook' => 'Ratchapat Permpool',

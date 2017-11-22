@@ -12,7 +12,7 @@
       <form action="/admin/upload" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group row">
-          <label for="name" class="col-lg-2 col-form-label">Name</label>
+          <label for="name" class="col-lg-2 col-form-label">Name of album</label>
           <div class="col-lg-10">
             <input type="text" name="name" class="form-control" id="name" placeholder="Name of album" value="{{ isset($name) ? $name : '' }}" required>
               @isset($nameErr)
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="description" class="col-lg-2 col-form-label">Desscription</label>
+          <label for="description" class="col-lg-2 col-form-label">Description</label>
           <div class="col-lg-10">
             <textarea name="description" class="form-control" id="description" rows="3" placeholder="Description of album">{{ isset($description) ? $description : '' }}</textarea>
           </div>

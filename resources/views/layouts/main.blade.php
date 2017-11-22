@@ -3,7 +3,7 @@
   <head>
     <title>IT-Gallery</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1.0, user-scalable=no">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/webfont.css') }}" rel="stylesheet" type="text/css">
@@ -12,16 +12,26 @@
   <body>
     <div class="jumboton cover"></div>
     <div id="navbar" class="jumboton transparent">
-        <a class="link" href="/home"><span class="dripicons-home"></span> IT-Gallery</a>
-        <a class="link" href="/list"><span class="dripicons-view-list"></span> List of albums</a>
-        <a class="link" href="/about"><span class="dripicons-user-group"></span> Our team</a>
+        <div class="btn-group hide-m">
+            <button type="button" class="btn btn-custom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dripicons-menu"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="/home"><span class="dripicons-home"></span> IT-Gallery</a>
+                <a class="dropdown-item" href="/list"><span class="dripicons-view-list"></span> List of albums</a>
+                <a class="dropdown-item" href="/about"><span class="dripicons-user-group"></span> Our team</a>
+            </div>
+        </div>
+        <a class="link hide" href="/home"><span class="dripicons-home"></span> IT-Gallery</a>
+        <a class="link hide" href="/list"><span class="dripicons-view-list"></span> List of albums</a>
+        <a class="link hide" href="/about"><span class="dripicons-user-group"></span> Our team</a>
         @guest
         <div class="btn-group float-right">
             <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="dripicons-enter"></span> Login
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <h6 class="dropdown-header">Admin login</h6>
+                <h6 class="dropdown-header">User login</h6>
                     <form class="form-item" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
                         <div class="form-group">
@@ -61,18 +71,22 @@
                     </form>
             </div>
         </div>
+        <a class="float-right link" href="/register"><span class="dripicons-plus"></span> Register</a>
         @else
         <div class="btn-group float-right">
             <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="dripicons-user"></span> {{ Auth::user()->name }}
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <h6 class="dropdown-header">Admin menu</h6>
-                <a class="dropdown-item" href="/admin/view">Admin view</a>
-                <a class="dropdown-item" href="/admin/upload">Upload album</a>
-                <a class="dropdown-item" href="/admin/delete">Delete album</a>
-                <a class="dropdown-item" href="/admin/register">Add admin</a>
-                <div class="dropdown-divider"></div>
+                @if (Auth::user()->approved)
+                    <h6 class="dropdown-header">Admin menu</h6>
+                    <a class="dropdown-item" href="/admin/view">Admin view</a>
+                    <a class="dropdown-item" href="/admin/upload">Upload album</a>
+                    <a class="dropdown-item" href="/admin/delete">Delete album</a>
+                    <a class="dropdown-item" href="/admin/user_list">list of user</a>
+                    <a class="dropdown-item" href="/admin/approved">Approve user</a>
+                    <div class="dropdown-divider"></div>
+                @endif
                 <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">

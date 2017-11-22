@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@default',
             'password' => bcrypt('defaultadmin'),
+            'approved' => TRUE,
+            'approved_by' => 'default',
             ]);
         $this->call(AboutTableSeeder::class);
     }

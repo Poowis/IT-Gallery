@@ -2,7 +2,7 @@
 
 @section('header')
     <div class="container header">
-      <h3>Admin login</h3>
+      <h3>User login</h3>
       <hr>
     </div>
 @endsection

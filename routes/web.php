@@ -24,8 +24,8 @@ $this->get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('admin/login', 'Auth\LoginController@login');
 $this->post('admin/logout', 'Auth\LoginController@logout')->name('logout');
 // Registration Routes...
-$this->get('admin/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-$this->post('admin/register', 'Auth\RegisterController@register');
+$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+$this->post('register', 'Auth\RegisterController@register');
 // Password Reset Routes...
 $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
@@ -41,4 +41,10 @@ Route::post('/admin/upload', 'AdminController@check_then_upload');
 Route::get('/admin/delete', 'AdminController@delete');
 
 Route::post('/admin/delete', 'AdminController@delete_album');
+
+Route::get('/admin/user_list', 'AdminController@users');
+
+Route::get('/admin/approved', 'AdminController@approved');
+
+Route::post('/admin/approved', 'AdminController@approved_admin');
 

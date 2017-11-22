@@ -1,6 +1,8 @@
+/*etc*/
 body {
 	background-color: #f6f7f9;
 }
+/*end etc*/
 
 /*import font*/
 @font-face {
@@ -17,11 +19,17 @@ p, h1, h2, h3, h4, h5, h6, a, button {
 /*end import font*/
 
 /*media*/
-@media (max-width: 575px) {
+@media (max-width: 800px) {
 .hide {
 	display: none!important;
 }
 }
+
+@media (min-width: 801px) {
+.hide-m {
+	display: none!important;
+}
+}	
 
 @media (max-width: 970px) {
 #popup {
@@ -77,6 +85,7 @@ span {
 	border: none;
 	color: #fff;
 	background-color: rgba(0, 0, 0, 0);
+	border-radius: 0.25rem;
 }
   
 .btn-custom:hover {
@@ -88,7 +97,7 @@ span {
 	box-shadow: none;
  }
  
-.show > .btn-custom.dropdown-toggle {
+.show > .btn-custom {
 	color: #fff;
 	background-color: rgba(0, 0, 0, 0.8);
 }
@@ -120,8 +129,6 @@ span {
 	background-image: url("/images/cover.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
 }
 /*end cover*/
 
@@ -201,7 +208,7 @@ span {
 	max-width: 100%;
 }
 
-.card_content:hover {
+.card_content img:hover {
 	opacity: 0.8;
 }
 
@@ -210,6 +217,8 @@ span {
 }
 
 .cards p {
+	overflow: hidden;
+	text-overflow: ellipsis;
 	margin-bottom: 0px;
 }
 /*end content*/

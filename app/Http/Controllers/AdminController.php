@@ -16,7 +16,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('approved');
     }
 
     /**
@@ -138,7 +138,7 @@ class AdminController extends Controller
             DB::table('Albums_Data')->where('id', $id)->delete();
             return redirect('/admin/view');
         }
-        return view('delete', ['idErr' => 'THIS ID DOES NOT EXISTS']);
+        return view('delete', ['idErr' => 'THIS ID DOES NOT EXIST']);
     }
 
     public function remove()
@@ -153,6 +153,40 @@ class AdminController extends Controller
             DB::table('users')->where('id', $id)->delete();
             return redirect('/admin/view');
         }
-        return view('remove', ['idErr' => 'THIS ID DOES NOT EXISTS']);
+        return view('remove', ['idErr' => 'THIS ID DOES NOT EXIST']);
+    }
+
+    public function approved()
+    {
+        return view('approved');
+    }
+
+    public function users()
+    {
+        $users = DB::table('users')->get();
+        return view('users', ['users' => $users]);
+    }
+
+    function checkemail($email) {
+        #if email exists, return True
+        $emailscheck = DB::table('users')->get(['email']);
+        foreach ($emailscheck as $emailcheck) {
+            if ($emailcheck->email == $email) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    public function approved_admin(Request $request)
+    {
+        $email = $request->input('email');
+        if ($this->checkemail($email)) {
+            $tmp = DB::table('users')->where('email', $email);
+            $tmp->update(['approved' => TRUE]);
+            $tmp->update(['approved_by' => Auth::user()->name]);
+            return redirect('/admin/view');
+        }
+        return view('approved', ['emailErr' => 'THIS EMAIL DOES NOT EXIST']);
     }
 }
