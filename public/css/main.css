@@ -5,7 +5,7 @@ body {
 /*import font*/
 @font-face {
     font-family: "bangna-new";
-    src: url('/bangna-new.ttf') format("truetype");
+    src: url('/fonts/bangna-new.ttf') format("truetype");
 }
 
 p, h1, h2, h3, h4, h5, h6, a, button { 
@@ -36,7 +36,6 @@ p, h1, h2, h3, h4, h5, h6, a, button {
 	z-index: 1000;
 	width: 100%;
 	top: 0px;
-	color: red;
 }
 
 #navbar .link {
@@ -50,6 +49,10 @@ p, h1, h2, h3, h4, h5, h6, a, button {
 #navbar .link:hover {
 	animation:linkin 0.3s;
 	background-color: rgba(0, 0, 0, 0.8);
+}
+
+span {
+	vertical-align: text-bottom;
 }
 
 .transparent {

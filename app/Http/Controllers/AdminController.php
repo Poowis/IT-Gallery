@@ -90,7 +90,7 @@ class AdminController extends Controller
                     'number_of_images' => $number,
                     'images' => serialize($images)
                     ]]);
-                return redirect('list');
+                return redirect('/admin/view');
             }
             
         }
@@ -136,7 +136,7 @@ class AdminController extends Controller
             $tmp = DB::table('Albums_Data')->where('id', $id)->value('name_of_album');
             Storage::deleteDirectory("public/$tmp");
             DB::table('Albums_Data')->where('id', $id)->delete();
-            return redirect('/list');
+            return redirect('/admin/view');
         }
         return view('delete', ['idErr' => 'THIS ID DOES NOT EXISTS']);
     }
@@ -151,7 +151,7 @@ class AdminController extends Controller
         $id = $request->input('id');
         if ($this->checkid($id, 'users')) {
             DB::table('users')->where('id', $id)->delete();
-            return redirect('/list');
+            return redirect('/admin/view');
         }
         return view('remove', ['idErr' => 'THIS ID DOES NOT EXISTS']);
     }

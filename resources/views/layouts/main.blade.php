@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/webfont.css') }}" rel="stylesheet" type="text/css">
     @yield('home')
   </head>
   <body>
     <div class="jumboton cover"></div>
     <div id="navbar" class="jumboton transparent">
-        <a class="link" href="/home">IT-Gallery</a>
-        <a class="link" href="/list">List of albums</a>
-        <a class="link" href="/about">About us</a>
+        <a class="link" href="/home"><span class="dripicons-home"></span> IT-Gallery</a>
+        <a class="link" href="/list"><span class="dripicons-view-list"></span> List of albums</a>
+        <a class="link" href="/about"><span class="dripicons-user-group"></span> Our team</a>
         @guest
         <div class="btn-group float-right">
             <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Login
+                <span class="dripicons-enter"></span> Login
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <h6 class="dropdown-header">Admin login</h6>
@@ -63,7 +64,7 @@
         @else
         <div class="btn-group float-right">
             <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->name }}
+                <span class="dripicons-user"></span> {{ Auth::user()->name }}
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <h6 class="dropdown-header">Admin menu</h6>
@@ -75,7 +76,7 @@
                 <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                    Logout
+                    <span class="dripicons-exit"></span> Logout
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
